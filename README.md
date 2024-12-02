@@ -1,19 +1,14 @@
-## Pré-requisitos
-
-1. **Node.js**: Certifique-se de que o Node.js está instalado em seu sistema. Você pode baixá-lo [aqui](https://nodejs.org/).
-   - Verifique a instalação:
-     ```bash
-     node -v
-     npm -v
-     ```
-
-2. **npm** ou **yarn**: Vem junto com o Node.js, mas você pode optar por instalar o Yarn separadamente, se preferir.
-
----
-
 ## Passos para Criar um Projeto React
 
-### 1. Criar o Projeto React
+### 1. Certifique-se de que o Node.js está instalado em seu sistema:
+
+Verifique a instalação:
+```bash
+node -v
+npm -v
+```
+
+### 2. Criar o Projeto React
 
 Execute o comando abaixo para criar um novo projeto:
 
@@ -24,12 +19,12 @@ npx create-react-app meu-projeto
 - **Explicação:**
   - `npx`: Executa pacotes sem precisar instalá-los globalmente.
   - `create-react-app`: Ferramenta para configurar um ambiente React completo.
-  - `meu-projeto`: Nome do seu diretório de projeto.
+  - `my-project`: Nome do seu diretório de projeto.
 
 ### 3. Acessar o Diretório do Projeto
 
 ```bash
-cd meu-projeto
+cd my-project
 ```
 
 ---
