@@ -1,19 +1,13 @@
-## Pré-requisitos
+## Passos para Criar um Projeto React
 
-1. **Node.js**: Certifique-se de que o Node.js está instalado em seu sistema.
+### 1. Certifique-se de que o Node.js está instalado em seu sistema.
    - Verifique a instalação:
      ```bash
      node -v
      npm -v
      ```
 
-2. **npm**: Vem junto com o Node.js.
-
----
-
-## Passos para Criar um Projeto React
-
-### 1. Criar o Projeto React
+### 2. Criar o Projeto React
 
 Execute o comando abaixo para criar um novo projeto:
 
