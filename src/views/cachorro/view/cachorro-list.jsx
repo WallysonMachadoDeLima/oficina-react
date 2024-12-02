@@ -6,11 +6,12 @@ import { MdEdit } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { UICard } from '../../../components/ui/card';
 import { paths } from '../../../router/paths';
-import { getLocalItem } from '../../../utils/storage';
+import { getLocalItem, setLocalItem } from '../../../utils/storage';
 
 const TABLE_HEAD = [
     { id: 'id', label: 'ID', width: '5%' },
-    { id: 'raca', label: 'Raça', width: 1 },
+    { id: 'nome', label: 'Nome', width: 1 },
+    { id: 'raca', label: 'Raça', width: '30%' },
     { id: 'actions', label: 'Ações', width: '0%' },
 ]
 
@@ -59,6 +60,7 @@ export const CachorroList = () => {
                             {list?.map((row) => (
                                 <TableRow hover key={row?.id}>
                                     <TableCell >{row?.id}</TableCell>
+                                    <TableCell >{row?.nome}</TableCell>
                                     <TableCell >{row?.raca}</TableCell>
                                     <TableCell sx={{ whiteSpace: 'nowrap' }}>
                                         <IconButton
@@ -74,12 +76,12 @@ export const CachorroList = () => {
                                             color="default"
                                             onClick={() => {
                                                 const newList = list.filter((item) => item?.id?.toString() !== row?.id?.toString());
-                                                localStorage.setItem('cachorros', JSON.stringify(newList));
-                                                alert(`Cachorro ${row?.raca} removido com sucesso!`);
+                                                setLocalItem('cachorros', newList);
+                                                alert(`Cachorro ${row?.nome} removido com sucesso!`);
                                                 window.location.reload();
                                             }}
                                         >
-                                            <FaTrash size={18} />
+                                            <FaTrash size={17} />
                                         </IconButton>
                                     </TableCell>
                                 </TableRow>

@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoadingButton } from '@mui/lab';
-import { Stack, TextField, Typography } from '@mui/material';
+import { MenuItem, Stack, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import { useMemo, useState } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
@@ -16,11 +16,13 @@ export const CachorroCreateEditForm = ({ currentData }) => {
     const [loader, setLoader] = useState(false);
 
     const validationShema = Yup.object().shape({
+        nome: Yup.string().required('Nome é obrigatório'),
         raca: Yup.string().required('Raça é obrigatório'),
     });
 
     const defaultValues = useMemo(
         () => ({
+            nome: currentData?.nome || '',
             raca: currentData?.raca || '',
         }),
         [currentData],
@@ -93,10 +95,26 @@ export const CachorroCreateEditForm = ({ currentData }) => {
                         <Grid xs={12}>
                             <Stack spacing={2} direction='row' >
                                 <Controller
+                                    name={'nome'}
+                                    control={control}
+                                    render={({ field, fieldState: { error } }) => (
+                                        <TextField
+                                            fullWidth
+                                            type='text'
+                                            value={field.value}
+                                            label="Nome"
+                                            onChange={(event) => field?.onChange(event?.target?.value)}
+                                            error={!!error}
+                                            helperText={error ? error?.message : ''}
+                                        />
+                                    )}
+                                />
+                                <Controller
                                     name={'raca'}
                                     control={control}
                                     render={({ field, fieldState: { error } }) => (
                                         <TextField
+                                            select
                                             fullWidth
                                             type='text'
                                             value={field.value}
@@ -104,7 +122,10 @@ export const CachorroCreateEditForm = ({ currentData }) => {
                                             onChange={(event) => field?.onChange(event?.target?.value)}
                                             error={!!error}
                                             helperText={error ? error?.message : ''}
-                                        />
+                                        >
+                                            <MenuItem value={'vira-lata'}>Vira-lata</MenuItem>
+                                            <MenuItem value={'labrador'}>Labrador</MenuItem>
+                                        </TextField>
                                     )}
                                 />
                             </Stack>
