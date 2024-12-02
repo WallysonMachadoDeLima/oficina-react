@@ -10,15 +10,13 @@ export const CachorroEdit = () => {
     const { id } = useParams();
 
     const list = getLocalItem('cachorros') || [];
-    const currentData = list.find((item) => item.id === id);
-
-    console.log(currentData);
+    const currentData = list.find((item) => item.id.toString() === id.toString());
 
     return (
         <>
             <Grid container alignItems="center" justifyContent="space-between">
                 <Grid item >
-                    <Typography variant="h3">Criar Cachorro</Typography>
+                    <Typography variant="h3">Editar Cachorro - {currentData?.raca}</Typography>
                 </Grid>
                 <Grid item>
                     <Button variant="contained" color="primary" onClick={() => {
@@ -28,8 +26,8 @@ export const CachorroEdit = () => {
                     </Button>
                 </Grid>
             </Grid>
-            {
-                <CachorroCreateEditForm currentData={currentData} />
+            {currentData && (
+                <CachorroCreateEditForm currentData={currentData} />)
             }
         </>
     )

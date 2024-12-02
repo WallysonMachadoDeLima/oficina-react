@@ -1,7 +1,7 @@
 'use client'
-
 import { Button, Grid, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import React from 'react';
+import { FaTrash } from "react-icons/fa";
 import { MdEdit } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { UICard } from '../../../components/ui/card';
@@ -70,9 +70,17 @@ export const CachorroList = () => {
                                             <MdEdit />
                                         </IconButton>
 
-                                        {/**  <IconButton color="default" onClick={confirm.onTrue} disabled>
-                        <Iconify icon="solar:trash-bin-trash-bold" />
-                      </IconButton> */}
+                                        <IconButton
+                                            color="default"
+                                            onClick={() => {
+                                                const newList = list.filter((item) => item?.id?.toString() !== row?.id?.toString());
+                                                localStorage.setItem('cachorros', JSON.stringify(newList));
+                                                alert(`Cachorro ${row?.raca} removido com sucesso!`);
+                                                window.location.reload();
+                                            }}
+                                        >
+                                            <FaTrash size={18} />
+                                        </IconButton>
                                     </TableCell>
                                 </TableRow>
                             ))}
