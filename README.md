@@ -1,11 +1,12 @@
 ## Passos para Criar um Projeto React
 
-### 1. Certifique-se de que o Node.js está instalado em seu sistema.
-   - Verifique a instalação:
-     ```bash
-     node -v
-     npm -v
-     ```
+### 1. Certifique-se de que o Node.js está instalado em seu sistema:
+
+Verifique a instalação:
+```bash
+node -v
+npm -v
+```
 
 ### 2. Criar o Projeto React
 
