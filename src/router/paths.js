@@ -1,4 +1,10 @@
 
 export const paths = {
-    home: '/'
+    home: '/',
+    components: '/components',
+    formulario: {
+        list: '/formulario/list',
+        create: '/formulario/create',
+        edit: (id) => `/formulario/edit/${id || ':id'}`,
+    }
 }
