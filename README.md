@@ -69,3 +69,4 @@ meu-projeto/
 ## Finalizando
 
 Agora você tem um projeto React funcionando. Edite os arquivos em `src/` para começar a construir seu aplicativo.
+https://chat.whatsapp.com/IlWk7qPrweWJfQVuk3Qdnz
